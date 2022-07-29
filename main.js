@@ -15,6 +15,22 @@ function turnCar() {
   }
 }
 
+var car = {
+  positionX: 0,
+  positionY: 0
+};
+
+function startCar() {
+  if (event.keyCode === 32) {
+    car.positionX = $car.x;
+    car.positionY = $car.y;
+    setInterval(function () {
+      $car.style.left = car.positionX++ + 'rem';
+    }, 16);
+  }
+}
+
+window.addEventListener('keydown', startCar);
 window.addEventListener('keydown', turnCar);
 
 // left = 37
